@@ -3,73 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#1b4332">
-    <meta name="description" content="تطبيق صفاء الروح - أذكار وأدعية موثقة من القرآن والسنة الكاملة">
+    <meta name="theme-color" content="#2d2d2d">
+    <meta name="description" content="تطبيق صفاء الروح - أذكار وأدعية موثقة من القرآن والسنة">
     <title>صفاء الروح - sabriFX</title>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root{
-            --green:#1b4332;
-            --dark:#081c15;
-            --gold:#d4af37;
-            --bg:#f8f9fa;
-            --text:#2d3436;
-            --card:#fff;
-            --shadow:0 4px 12px rgba(0,0,0,.08);
-            --r:16px
-        }
-        [data-theme="dark"]{
-            --bg:#0a0f0d;
-            --text:#f0f0f0;
-            --card:#152a22;
-            --shadow:0 4px 12px rgba(0,0,0,.3)
+            --primary-dark: #2d2d2d;
+            --primary-darker: #1a1a1a;
+            --accent-gold: #f4d03f;
+            --accent-gold-light: #ffd700;
+            --bg-dark: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --shadow: 0 8px 25px rgba(0,0,0,0.4);
+            --r: 18px
         }
         *{
             box-sizing:border-box;
-            transition:all .2s;
+            transition:all .25s;
             -webkit-tap-highlight-color:transparent;
             margin:0;
             padding:0
         }
         body{
             font-family:'Almarai',sans-serif;
-            background:var(--bg);
-            color:var(--text);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color:var(--text-primary);
             min-height:100vh;
             padding-bottom:50px
         }
         
         .header{
             width:100%;
-            min-height:140px;
-            background:linear-gradient(160deg,var(--green),var(--dark));
-            border-radius:0 0 35px 35px;
+            min-height:160px;
+            background: linear-gradient(135deg, rgba(45, 45, 45, 0.98), rgba(26, 26, 26, 0.95));
+            border-radius:0 0 40px 40px;
             display:flex;
             flex-direction:column;
             align-items:center;
             justify-content:center;
-            margin-bottom:20px;
-            box-shadow:0 8px 25px rgba(0,0,0,.15)
+            margin-bottom:25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);            border-bottom: 2px solid var(--accent-gold);
+            position: relative;
         }
         .header h1{
-            color:var(--gold);
-            font-size:22px;
-            font-weight:800
+            color:var(--accent-gold);
+            font-size:26px;
+            font-weight:900;
+            text-shadow: 0 2px 8px rgba(244, 208, 63, 0.3);
+            margin-top: 10px;
         }
         .header p{
-            color:#ddd;
-            font-size:12px;
-            margin-top:5px
+            color:var(--text-secondary);
+            font-size:13px;
+            margin-top:8px;
+            font-weight: 500;
         }
         .logo-box{
-            width:70px;
-            height:70px;
+            width:80px;
+            height:80px;
             border-radius:50%;
-            border:3px solid var(--gold);
-            background:#fff;
-            margin:-35px auto 10px;
+            border:3px solid var(--accent-gold);
+            background:var(--card-bg);
+            margin:-40px auto 15px;
             overflow:hidden;
             position:relative;
             z-index:5;
@@ -77,7 +77,8 @@
             align-items:center;
             justify-content:center;
             font-size:40px;
-            color:var(--green)
+            color:var(--accent-gold);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
         }
 
         .grid{
@@ -85,29 +86,37 @@
             margin:20px auto;
             display:grid;
             grid-template-columns:1fr 1fr;
-            gap:12px
+            gap:15px
         }
         .card{
-            background:var(--card);
+            background:var(--card-bg);
             border-radius:var(--r);
-            padding:18px;
+            padding:20px 15px;
             box-shadow:var(--shadow);
-            border-bottom:3px solid var(--gold);
+            border: 1px solid rgba(244, 208, 63, 0.2);
             cursor:pointer;
-            text-align:center
+            text-align:center;
+            transition: all 0.3s;        }
+        .card:hover{
+            transform: translateY(-3px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 12px 30px rgba(244, 208, 63, 0.15);
         }
         .card-icon{
-            font-size:26px;
-            color:var(--gold);
-            margin-bottom:8px
+            font-size:32px;
+            color:var(--accent-gold);
+            margin-bottom:12px
         }
         .card-title{
-            font-size:14px;
-            font-weight:700;
-            color:var(--green)
+            font-size:15px;
+            font-weight:800;
+            color:var(--text-primary);
+            margin-bottom: 5px;
         }
-        [data-theme="dark"] .card-title{
-            color:var(--gold)
+        .card-subtitle{
+            font-size:11px;
+            color:var(--text-secondary);
+            font-weight: 500;
         }
 
         #main-content.hidden{
@@ -132,138 +141,134 @@
         }
 
         .page-header{
-            background:linear-gradient(135deg,var(--green),var(--dark));
-            padding:12px 18px;
-            border-radius:15px;
-            color:#fff;
-            margin-bottom:20px;
-            display:flex;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-darker));
+            padding:15px 20px;
+            border-radius:18px;
+            color:var(--text-primary);
+            margin-bottom:20px;            display:flex;
             align-items:center;
             gap:15px;
             text-align:right;
             position:sticky;
             top:0;
-            z-index:10
+            z-index:10;
+            border: 1px solid rgba(244, 208, 63, 0.2);
         }
         .back-btn{
-            background:rgba(255,255,255,0.1);
-            border:1px solid var(--gold);
-            color:var(--gold);
-            width:35px;
-            height:35px;
-            border-radius:8px;
+            background:rgba(244, 208, 63, 0.1);
+            border:2px solid var(--accent-gold);
+            color:var(--accent-gold);
+            width:40px;
+            height:40px;
+            border-radius:12px;
             display:flex;
             align-items:center;
             justify-content:center;
             cursor:pointer;
-            font-size:16px
+            font-size:16px;
+            transition: all 0.3s;
+        }
+        .back-btn:hover{
+            background:var(--accent-gold);
+            color:var(--primary-darker);
         }
 
         .zekr-box{
-            background:var(--card);
-            border-radius:15px;
-            padding:20px;
-            margin-bottom:15px;
+            background:var(--card-bg);
+            border-radius:18px;
+            padding:22px;
+            margin-bottom:18px;
             box-shadow:var(--shadow);
-            border-right:5px solid var(--gold);
-            text-align:right
+            border-right:5px solid var(--accent-gold);
+            text-align:right;
+            border: 1px solid rgba(244, 208, 63, 0.1);
         }
         .zekr-text{
-            font-size:15px;
-            line-height:2;
-            color:var(--text);
+            font-size:16px;
+            line-height:2.1;
+            color:var(--text-primary);
             font-weight:600;
             display:block;
-            margin-bottom:10px
+            margin-bottom:12px
         }
         .quran-style{
             font-family:'Amiri',serif;
-            font-size:18px;
-            color:var(--green);
-            text-align:center;
-            background:rgba(27,67,50,0.04);
-            padding:15px;
-            border-radius:10px;
+            font-size:20px;
+            color:var(--accent-gold);            text-align:center;
+            background:rgba(244, 208, 63, 0.08);
+            padding:18px;
+            border-radius:12px;
             display:block;
-            margin-bottom:10px;
-            line-height:2.2
-        }
-        [data-theme="dark"] .quran-style{
-            color:var(--gold);
-            background:rgba(212,175,55,0.08)
+            margin-bottom:12px;
+            line-height:2.4;
+            border: 1px solid rgba(244, 208, 63, 0.2);
         }
         .hadith-ref{
             font-size:12px;
-            color:#888;
-            margin-top:8px;
-            font-style:italic
-        }
-        [data-theme="dark"] .hadith-ref{
-            color:#aaa
+            color:var(--text-secondary);
+            margin-top:10px;
+            font-style:italic;
+            display: block;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(255,255,255,0.1);
         }
         
         .counter{
-            background:var(--green);
-            color:#fff;
-            padding:12px;
-            border-radius:12px;
-            margin-top:12px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color:var(--primary-darker);
+            padding:14px;
+            border-radius:14px;
+            margin-top:15px;
             display:flex;
             justify-content:center;
+            align-items: center;
             gap:10px;
-            font-weight:bold;
+            font-weight:800;
             cursor:pointer;
             border:none;
             width:100%;
-            font-size:14px
+            font-size:15px;
+            transition: all 0.2s;
         }
         .counter:hover{
-            background:var(--dark)
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(244, 208, 63, 0.3);
+        }
+        .counter:active{
+            transform: scale(0.98);
         }
         .completed{
-            opacity:0.4;
+            opacity:0.5;
             filter:grayscale(1)
         }
 
         .footer{
-            padding:20px;
-            font-size:11px;
-            color:#888;
-            text-align:center
+            padding:25px;            font-size:12px;
+            color:var(--text-secondary);
+            text-align:center;
+            margin-top: 20px;
         }
-        .theme-btn{
-            position:fixed;
-            bottom:20px;
-            left:20px;
-            width:45px;
-            height:45px;
-            background:var(--gold);
-            border-radius:50%;
-            border:none;
-            box-shadow:var(--shadow);
-            z-index:100;
-            cursor:pointer;
-            font-size:18px;
-            color:var(--green)
-        }
-        .theme-btn:hover{
-            transform:scale(1.1)
+        .footer b{
+            color:var(--accent-gold);
+            font-weight: 800;
         }
 
         .info-badge{
-            background:rgba(27,67,50,0.1);
-            border-right:3px solid var(--green);
-            padding:10px;
-            border-radius:8px;
-            font-size:12px;
-            color:var(--text);
-            margin-bottom:15px;
-            text-align:right
+            background:rgba(244, 208, 63, 0.1);
+            border-right:4px solid var(--accent-gold);
+            padding:14px;
+            border-radius:12px;
+            font-size:13px;
+            color:var(--text-primary);
+            margin-bottom:20px;
+            text-align:right;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        [data-theme="dark"] .info-badge{
-            background:rgba(212,175,55,0.08);
-            border-right-color:var(--gold);
-            color:var(--text)
+        .info-badge i{
+            color:var(--accent-gold);
+            font-size: 16px;
         }
 
         @media (max-width:480px){
@@ -271,524 +276,568 @@
                 grid-template-columns:1fr
             }
             .header h1{
-                font-size:18px
+                font-size:22px
             }
             .zekr-box{
-                padding:15px
+                padding:18px
             }
             .quran-style{
-                font-size:16px
+                font-size:18px
             }
         }
     </style>
 </head>
-<body data-theme="light">
-
-<button class="theme-btn" onclick="toggleTheme()" title="تبديل الوضع الليلي"><i class="fas fa-moon"></i></button>
+<body>
 
 <div id="main-content">
     <header class="header">
-        <h1>صفاء الروح</h1>
-        <p>أذكار وأدعية موثقة من القرآن والسنة الكاملة</p>
-    </header>
+        <h1>✨ صفاء الروح ✨</h1>
+        <p>طمأنينة تقربك من الله في كل لحظة</p>    </header>
     <div class="logo-box"><i class="fas fa-spa"></i></div>
 
     <main class="grid">
         <div class="card" onclick="openSection('morning')">
             <i class="fas fa-sun card-icon"></i>
-            <div class="card-title">أذكار الصباح</div>
+            <div class="card-title">أذكار الصباح والمساء</div>
+            <div class="card-subtitle">صباح ومساء</div>
         </div>
-        <div class="card" onclick="openSection('evening')">
-            <i class="fas fa-moon card-icon"></i>
-            <div class="card-title">أذكار المساء</div>
+        <div class="card" onclick="openSection('prophets')">
+            <i class="fas fa-quran card-icon"></i>
+            <div class="card-title">أدعية الأنبياء</div>
+            <div class="card-subtitle">من القرآن الكريم</div>
         </div>
         <div class="card" onclick="openSection('sleep')">
             <i class="fas fa-bed card-icon"></i>
             <div class="card-title">أذكار النوم</div>
+            <div class="card-subtitle">كاملة وموثقة</div>
         </div>
-        <div class="card" onclick="openSection('waking')">
+        <div class="card" onclick="openSection('virtues')">
             <i class="fas fa-star card-icon"></i>
-            <div class="card-title">أذكار الاستيقاظ</div>
+            <div class="card-title">فضائل الأذكار</div>
+            <div class="card-subtitle">أذكار لها فضائل</div>
         </div>
-        <div class="card" onclick="openSection('prayer')">
+        <div class="card" onclick="openSection('sunnah')">
             <i class="fas fa-hands-praying card-icon"></i>
-            <div class="card-title">أذكار بعد الصلاة</div>
+            <div class="card-title">سنن مهجورة</div>
+            <div class="card-subtitle">من هدي النبي ﷺ</div>
         </div>
-        <div class="card" onclick="openSection('home')">
-            <i class="fas fa-home card-icon"></i>
-            <div class="card-title">أذكار المنزل</div>
-        </div>
-        <div class="card" onclick="openSection('mosque')">
-            <i class="fas fa-mosque card-icon"></i>
-            <div class="card-title">أذكار المسجد</div>
-        </div>
-        <div class="card" onclick="openSection('prophetic')">
-            <i class="fas fa-heart card-icon"></i>
-            <div class="card-title">أدعية نبوية</div>
+        <div class="card" onclick="openSection('sins')">
+            <i class="fas fa-exclamation-triangle card-icon"></i>
+            <div class="card-title">احذر الكبائر</div>
+            <div class="card-subtitle">ذنوب الخلوات وغيرها</div>
         </div>
     </main>
     
-    <footer class="footer">برمجة وتطوير <b>sabriFX</b> &copy; 2026 | تطبيق موثوق من القرآن والسنة</footer>
+    <footer class="footer">تطبيق <b>صفاء الروح</b> | sabriFX &copy; 2026</footer>
 </div>
 
 <div id="pages-layer">
     
-    <!-- أذكار الصباح -->
+    <!-- أذكار الصباح والمساء -->
     <section id="morning" class="page">
         <div class="page-header">
             <button class="back-btn" onclick="closeSection()" title="العودة"><i class="fas fa-arrow-right"></i></button>
-            <div><h3>أذكار الصباح</h3></div>
+            <div>
+                <h3 style="margin:0; font-size:18px;">أذكار الصباح والمساء</h3>
+                <span style="font-size:12px; color:var(--text-secondary);">من حصن المسلم</span>
+            </div>
         </div>
-
         <div class="info-badge">
-            <i class="fas fa-info-circle"></i> اقرأ هذه الأذكار كل صباح بعد طلوع الفجر
+            <i class="fas fa-info-circle"></i>
+            <span>من قالها حين يصبح أجير من الجن حتى يمسى، ومن قالها حين يمسى أجير حتى يصبح</span>
         </div>
 
         <!-- آية الكرسي -->
         <div class="zekr-box">
-            <span class="quran-style">اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ</span>
+            <span class="quran-style">اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ</span>
             <span class="zekr-text">آية الكرسي</span>
-            <span class="hadith-ref">البقرة: 255 | من قالها حين يصبح أجير من الجن حتى يمسى</span>
+            <span class="hadith-ref">البقرة: 255 | من قالها حين يصبح أجير من الجن حتى يمسى، ومن قالها حين يمسى أجير حتى يصبح | صحيح النسائي</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>مرة</span></button>
         </div>
 
-        <!-- سورة الإخلاص -->
+        <!-- المعوذات -->
         <div class="zekr-box">
-            <span class="quran-style">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ (4)</span>
+            <span class="quran-style">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ<br>قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ ﴿٤﴾</span>
             <span class="zekr-text">سورة الإخلاص</span>
-            <span class="hadith-ref">الإخلاص: 1-4 | تقرأ 3 مرات</span>
+            <span class="hadith-ref">من قرأها ثلاث مرات حين يصبح وحين يمسى كفتاه من كل شيء | أبو داود والترمذي</span>
             <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
         </div>
 
-        <!-- سورة الفلق -->
         <div class="zekr-box">
-            <span class="quran-style">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِنْ شَرِّ مَا خَلَقَ (2) وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)</span>
+            <span class="quran-style">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ<br>قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِنْ شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ ﴿٥﴾</span>
             <span class="zekr-text">سورة الفلق</span>
-            <span class="hadith-ref">الفلق: 1-5 | تقرأ 3 مرات</span>
+            <span class="hadith-ref">من المعوذات | تقرأ 3 مرات</span>
             <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
         </div>
 
-        <!-- سورة الناس -->
         <div class="zekr-box">
-            <span class="quran-style">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَهِ النَّاسِ (3) مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)</span>
+            <span class="quran-style">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ<br>قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ إِلَهِ النَّاسِ ﴿٣﴾ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾</span>
             <span class="zekr-text">سورة الناس</span>
-            <span class="hadith-ref">الناس: 1-6 | تقرأ 3 مرات</span>
+            <span class="hadith-ref">من المعوذات | تقرأ 3 مرات</span>
             <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
         </div>
 
-        <!-- أصبحنا وأصبح الملك لله -->
+        <!-- أصبحنا وأصبح الملك -->
         <div class="zekr-box">
-            <span class="zekr-text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</span>
-            <span class="hadith-ref">من أذكار الصباح الثابتة | مرة واحدة</span>
+            <span class="zekr-text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ</span>
+            <span class="hadith-ref">من أذكار الصباح | مسلم</span>
+        </div>
+
+        <!-- أمسينا وأمسى الملك -->
+        <div class="zekr-box">
+            <span class="zekr-text">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ</span>
+            <span class="hadith-ref">من أذكار المساء | مسلم</span>
         </div>
 
         <!-- سيد الاستغفار -->
-        <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</span>
-            <span class="hadith-ref">سيد الاستغفار | من قالها موقناً بها دخل الجنة</span>
+        <div class="zekr-box">            <span class="zekr-text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</span>
+            <span class="hadith-ref">سيد الاستغفار | من قاله موقناً به حين يصبح فمات من يومه دخل الجنة، ومن قاله حين يمسى فمات من ليلته دخل الجنة | البخاري</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>مرة</span></button>
         </div>
 
-        <!-- رضيت بالله رباً -->
+        <!-- رضيت بالله -->
         <div class="zekr-box">
-            <span class="zekr-text">رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا</span>
-            <span class="hadith-ref">من أذكار الصباح | تقرأ 3 مرات</span>
+            <span class="zekr-text">رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا</span>
+            <span class="hadith-ref">من قالها حين يصبح وحين يمسى كان حقاً على الله أن يرضيه يوم القيامة | أبو داود والترمذي</span>
             <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
         </div>
 
-        <!-- اللهم إني أصبحت أشهدك -->
+        <!-- اللهم إني أصبحت -->
         <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ</span>
-            <span class="hadith-ref">من أذكار الصباح | من قالها أعتقه الله من النار</span>
+            <span class="zekr-text">اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلَائِكَتَكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ، وَحْدَكَ لَا شَرِيكَ لَكَ، وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ</span>
+            <span class="hadith-ref">من قالها حين يصبح أو يمسى أعتقه الله من النار | أبو داود والترمذي</span>
+            <button class="counter" onclick="doCount(this, 4)"><span>4</span> <span>مرات</span></button>
         </div>
 
         <!-- حسبي الله -->
         <div class="zekr-box">
-            <span class="zekr-text">حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</span>
-            <span class="hadith-ref">من أذكار الصباح | تقرأ 7 مرات</span>
+            <span class="zekr-text">حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</span>
+            <span class="hadith-ref">من قالها سبع مرات حين يصبح وحين يمسى كفاه الله ما أهمه من أمر الدنيا والآخرة | أبو داود</span>
             <button class="counter" onclick="doCount(this, 7)"><span>7</span> <span>مرات</span></button>
         </div>
 
         <!-- باسم الله الذي لا يضر -->
         <div class="zekr-box">
-            <span class="zekr-text">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</span>
-            <span class="hadith-ref">من أذكار الصباح | تقرأ 3 مرات</span>
+            <span class="zekr-text">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ، وَهُوَ السَّمِيعُ الْعَلِيمُ</span>
+            <span class="hadith-ref">من قالها ثلاث مرات حين يصبح وثلاث مرات حين يمسى لم يضره شيء | أبو داود والترمذي</span>
             <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
         </div>
 
         <!-- يا حي يا قيوم -->
         <div class="zekr-box">
-            <span class="zekr-text">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ أَصْلِحْ لِي شَأْنِي كُلَّهُ وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ</span>
-            <span class="hadith-ref">من أذكار الصباح | تقرأ 3 مرات</span>
+            <span class="zekr-text">يَا حَيُّ يَا قَيُّومُ، بِرَحْمَتِكَ أَسْتَغِيثُ، أَصْلِحْ لِي شَأْنِي كُلَّهُ، وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ</span>
+            <span class="hadith-ref">من أذكار الصباح والمساء | الحاكم</span>
             <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
+        </div>
+
+        <!-- سبحان الله وبحمده -->
+        <div class="zekr-box">
+            <span class="zekr-text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ</span>
+            <span class="hadith-ref">من قالها حين يصبح ثلاث مرات كفتاه من كل شر | مسلم</span>
+            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
+        </div>
+
+        <!-- الصلاة على النبي -->
+        <div class="zekr-box">
+            <span class="zekr-text">اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى نَبِيِّنَا مُحَمَّدٍ</span>            <span class="hadith-ref">من صلى عليَّ حين يصبح عشراً وحين يمسى عشراً أدركته شفاعتي يوم القيامة | الطبراني</span>
+            <button class="counter" onclick="doCount(this, 10)"><span>10</span> <span>مرات</span></button>
         </div>
     </section>
 
-    <!-- أذكار المساء -->
-    <section id="evening" class="page">
+    <!-- أدعية الأنبياء -->
+    <section id="prophets" class="page">
         <div class="page-header">
-            <button class="back-btn" onclick="closeSection()" title="العودة"><i class="fas fa-arrow-right"></i></button>
-            <div><h3>أذكار المساء</h3></div>
+            <button class="back-btn" onclick="closeSection()"><i class="fas fa-arrow-right"></i></button>
+            <div>
+                <h3 style="margin:0; font-size:18px;">أدعية الأنبياء</h3>
+                <span style="font-size:12px; color:var(--text-secondary);">من القرآن الكريم</span>
+            </div>
         </div>
 
         <div class="info-badge">
-            <i class="fas fa-info-circle"></i> اقرأ هذه الأذكار كل مساء قبل غروب الشمس
+            <i class="fas fa-info-circle"></i>
+            <span>أدعية الأنبياء من القرآن الكريم مع بيان من دعا بها</span>
         </div>
 
-        <!-- آية الكرسي -->
+        <!-- دعاء آدم -->
         <div class="zekr-box">
-            <span class="quran-style">اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ</span>
-            <span class="zekr-text">آية الكرسي</span>
-            <span class="hadith-ref">البقرة: 255 | من قالها حين يمسى أجير من الجن حتى يصبح</span>
+            <span class="quran-style">رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ</span>
+            <span class="zekr-text">دعاء آدم وحواء عليهما السلام</span>
+            <span class="hadith-ref">الأعراف: 23 | دعاء التوبة والاستغفار بعد المعصية</span>
         </div>
 
-        <!-- المعوذات -->
+        <!-- دعاء نوح -->
         <div class="zekr-box">
-            <span class="quran-style">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-قُلْ هُوَ اللَّهُ أَحَدٌ (1) اللَّهُ الصَّمَدُ (2) لَمْ يَلِدْ وَلَمْ يُولَدْ (3) وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ (4)</span>
-            <span class="zekr-text">سورة الإخلاص</span>
-            <span class="hadith-ref">الإخلاص: 1-4 | تقرأ 3 مرات</span>
-            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
+            <span class="quran-style">رَبِّ إِنِّي أَعُوذُ بِكَ أَنْ أَسْأَلَكَ مَا لَيْسَ لِي بِهِ عِلْمٌ ۖ وَإِلَّا تَغْفِرْ لِي وَتَرْحَمْنِي أَكُنْ مِنَ الْخَاسِرِينَ</span>
+            <span class="zekr-text">دعاء نوح عليه السلام</span>
+            <span class="hadith-ref">هود: 47 | الاستعاذة من السؤال بغير علم</span>
         </div>
 
+        <!-- دعاء إبراهيم -->
         <div class="zekr-box">
-            <span class="quran-style">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ (1) مِنْ شَرِّ مَا خَلَقَ (2) وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ (3) وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ (4) وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ (5)</span>
-            <span class="zekr-text">سورة الفلق</span>
-            <span class="hadith-ref">الفلق: 1-5 | تقرأ 3 مرات</span>
-            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
+            <span class="quran-style">رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِنْ ذُرِّيَّتِي ۚ رَبَّنَا وَتَقَبَّلْ دُعَاءِ</span>
+            <span class="zekr-text">دعاء إبراهيم عليه السلام</span>
+            <span class="hadith-ref">إبراهيم: 40 | الدعاء بإقامة الصلاة للذرية</span>
         </div>
 
         <div class="zekr-box">
-            <span class="quran-style">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-قُلْ أَعُوذُ بِرَبِّ النَّاسِ (1) مَلِكِ النَّاسِ (2) إِلَهِ النَّاسِ (3) مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ (4) الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ (5) مِنَ الْجِنَّةِ وَالنَّاسِ (6)</span>
-            <span class="zekr-text">سورة الناس</span>
-            <span class="hadith-ref">الناس: 1-6 | تقرأ 3 مرات</span>
-            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
+            <span class="quran-style">رَبِّ هَبْ لِي حُكْمًا وَأَلْحِقْنِي بِالصَّالِحِينَ</span>
+            <span class="zekr-text">دعاء إبراهيم عليه السلام</span>
+            <span class="hadith-ref">الشعراء: 83 | طلب الحكمة ولحاق الصالحين</span>
         </div>
 
-        <!-- أمسينا وأمسى الملك لله -->
+        <!-- دعاء موسى -->
         <div class="zekr-box">
-            <span class="zekr-text">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</span>
-            <span class="hadith-ref">من أذكار المساء الثابتة | مرة واحدة</span>
+            <span class="quran-style">رَبِّ اشْرَحْ لِي صَدْرِي ﴿٢٥﴾ وَيَسِّرْ لِي أَمْرِي ﴿٢٦﴾ وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي ﴿٢٧﴾ يَفْقَهُوا قَوْلِي ﴿٢٨﴾</span>            <span class="zekr-text">دعاء موسى عليه السلام</span>
+            <span class="hadith-ref">طه: 25-28 | دعاء قبل المهمات الكبيرة</span>
         </div>
 
-        <!-- سيد الاستغفار -->
         <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</span>
-            <span class="hadith-ref">سيد الاستغفار | من قالها في ليلته فمات دخل الجنة</span>
+            <span class="quran-style">رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ</span>
+            <span class="zekr-text">دعاء موسى عليه السلام</span>
+            <span class="hadith-ref">القصص: 24 | دعاء المحتاج لربه</span>
         </div>
 
-        <!-- رضيت بالله رباً -->
+        <!-- دعاء أيوب -->
         <div class="zekr-box">
-            <span class="zekr-text">رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا</span>
-            <span class="hadith-ref">من أذكار المساء | تقرأ 3 مرات</span>
-            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
+            <span class="quran-style">أَنِّي مَسَّنِيَ الضُّرُّ وَأَنْتَ أَرْحَمُ الرَّاحِمِينَ</span>
+            <span class="zekr-text">دعاء أيوب عليه السلام</span>
+            <span class="hadith-ref">الأنبياء: 83 | دعاء المريض والمبتلى</span>
         </div>
 
-        <!-- اللهم إني أمسيت أشهدك -->
+        <!-- دعاء يونس -->
         <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلَّا أَنْتَ وَحْدَكَ لَا شَرِيكَ لَكَ وَأَنَّ مُحَمَّدًا عَبْدُكَ وَرَسُولُكَ</span>
-            <span class="hadith-ref">من أذكار المساء | من قالها أعتقه الله من النار</span>
+            <span class="quran-style">لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ</span>
+            <span class="zekr-text">دعاء يونس عليه السلام في بطن الحوت</span>
+            <span class="hadith-ref">الأنبياء: 87 | من قالها في كرب فرج الله كربه | الترمذي</span>
+            <button class="counter" onclick="doCount(this, 100)"><span>100</span> <span>مرة</span></button>
         </div>
 
-        <!-- حسبي الله -->
+        <!-- دعاء زكريا -->
         <div class="zekr-box">
-            <span class="zekr-text">حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</span>
-            <span class="hadith-ref">من أذكار المساء | تقرأ 7 مرات</span>
-            <button class="counter" onclick="doCount(this, 7)"><span>7</span> <span>مرات</span></button>
+            <span class="quran-style">رَبِّ لَا تَذَرْنِي فَرْدًا وَأَنْتَ خَيْرُ الْوَارِثِينَ</span>
+            <span class="zekr-text">دعاء زكريا عليه السلام</span>
+            <span class="hadith-ref">الأنبياء: 89 | دعاء من أراد الذرية</span>
         </div>
 
-        <!-- أعوذ بكلمات الله التامات -->
+        <!-- دعاء سليمان -->
         <div class="zekr-box">
-            <span class="zekr-text">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</span>
-            <span class="hadith-ref">من أذكار المساء | تقرأ 3 مرات</span>
-            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
+            <span class="quran-style">رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ وَأَدْخِلْنِي بِرَحْمَتِكَ فِي عِبَادِكَ الصَّالِحِينَ</span>
+            <span class="zekr-text">دعاء سليمان عليه السلام</span>
+            <span class="hadith-ref">النمل: 19 | دعاء الشكر والعمل الصالح</span>
+        </div>
+
+        <!-- دعاء الصالحين -->
+        <div class="zekr-box">
+            <span class="quran-style">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</span>
+            <span class="zekr-text">دعاء شامل من القرآن</span>
+            <span class="hadith-ref">البقرة: 201 | من أكثر دعاء النبي ﷺ | البخاري</span>
+            <button class="counter" onclick="doCount(this, 10)"><span>10</span> <span>مرات</span></button>
         </div>
     </section>
 
     <!-- أذكار النوم -->
-    <section id="sleep" class="page">
-        <div class="page-header">
-            <button class="back-btn" onclick="closeSection()" title="العودة"><i class="fas fa-arrow-right"></i></button>
-            <div><h3>أذكار النوم</h3></div>
+    <section id="sleep" class="page">        <div class="page-header">
+            <button class="back-btn" onclick="closeSection()"><i class="fas fa-arrow-right"></i></button>
+            <div>
+                <h3 style="margin:0; font-size:18px;">أذكار النوم</h3>
+                <span style="font-size:12px; color:var(--text-secondary);">كاملة وموثقة</span>
+            </div>
         </div>
 
         <div class="info-badge">
-            <i class="fas fa-info-circle"></i> اقرأ هذه الأذكار قبل النوم مباشرة
+            <i class="fas fa-info-circle"></i>
+            <span>أذكار النوم للحماية من الشيطان والراحة في النوم</span>
         </div>
 
-        <!-- باسمك ربي وضعت جنبي -->
         <div class="zekr-box">
             <span class="zekr-text">بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ، فَإِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا، وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ</span>
-            <span class="hadith-ref">من أذكار النوم | تقرأ قبل النوم مباشرة</span>
+            <span class="hadith-ref">من أذكار النوم | البخاري ومسلم</span>
         </div>
 
-        <!-- اللهم قني عذابك -->
-        <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ</span>
-            <span class="hadith-ref">من أذكار النوم | تقرأ 3 مرات</span>
-            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
-        </div>
-
-        <!-- باسمك اللهم أموت وأحيا -->
         <div class="zekr-box">
             <span class="zekr-text">بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا</span>
-            <span class="hadith-ref">من أذكار النوم | تقرأ عند النوم</span>
+            <span class="hadith-ref">من أذكار النوم | البخاري</span>
         </div>
 
-        <!-- الحمد لله الذي أطعمنا -->
         <div class="zekr-box">
-            <span class="zekr-text">الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَكَفَانَا وَآوَانَا، فَكَمْ مِمَّنْ لَا كَافِيَ لَهُ وَلَا مُؤْوِيَ</span>
-            <span class="hadith-ref">من أذكار النوم | شكر على نعم الله</span>
+            <span class="zekr-text">اللَّهُمَّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ</span>
+            <span class="hadith-ref">من أذكار النوم | أبو داود والترمذي</span>
+            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
         </div>
 
-        <!-- اللهم عالم الغيب والشهادة -->
         <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ</span>
-            <span class="hadith-ref">من أذكار النوم | دعاء قبل النوم</span>
+            <span class="zekr-text">اللَّهُمَّ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطَانِ وَشِرْكِهِ</span>
+            <span class="hadith-ref">من أذكار النوم | أبو داود والترمذي</span>
         </div>
 
-        <!-- اللهم أسلمت نفسي إليك -->
         <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ أَسْلَمْتُ نَفْسِي إِلَيْكَ وَفَوَّضْتُ أَمْرِي إِلَيْكَ وَوَجَّهْتُ وَجْهِي إِلَيْكَ وَأَلْجَأْتُ ظَهْرِي إِلَيْكَ رَغْبَةً وَرَهْبَةً إِلَيْكَ، لَا مَلْجَأَ وَلَا مَنْجَى مِنْكَ إِلَّا إِلَيْكَ، آمَنْتُ بِكِتَابِكَ الَّذِي أَنْزَلْتَ وَبِنَبِيِّكَ الَّذِي أَرْسَلْتَ</span>
-            <span class="hadith-ref">من أذكار النوم | توكل على الله</span>
+            <span class="zekr-text">اللَّهُمَّ أَسْلَمْتُ نَفْسِي إِلَيْكَ، وَفَوَّضْتُ أَمْرِي إِلَيْكَ، وَوَجَّهْتُ وَجْهِي إِلَيْكَ، وَأَلْجَأْتُ ظَهْرِي إِلَيْكَ، رَغْبَةً وَرَهْبَةً إِلَيْكَ، لَا مَلْجَأَ وَلَا مَنْجَى مِنْكَ إِلَّا إِلَيْكَ، آمَنْتُ بِكِتَابِكَ الَّذِي أَنْزَلْتَ، وَبِنَبِيِّكَ الَّذِي أَرْسَلْتَ</span>
+            <span class="hadith-ref">من أذكار النوم | من قالها ثم مات مات على الفطرة | البخاري</span>
         </div>
 
-        <!-- التسبيح والتحميد والتكبير -->
         <div class="zekr-box">
             <span class="zekr-text">سُبْحَانَ اللَّهِ (33 مرة)، وَالْحَمْدُ لِلَّهِ (33 مرة)، وَاللَّهُ أَكْبَرُ (34 مرة)</span>
-            <span class="hadith-ref">من أذكار النوم | تسبيح وتحميد وتكبير</span>
+            <span class="hadith-ref">تسبيح قبل النوم | من قالها غُفرت ذنوبه وإن كانت مثل زبد البحر | البخاري ومسلم</span>
         </div>
 
-        <!-- خواتيم سورة البقرة -->
         <div class="zekr-box">
-            <span class="quran-style">آمَنَ الرَّسُولُ بِمَا أُنْزِلَ إِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِنْ رُسُلِهِ وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ (285) لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ (286)</span>
+            <span class="quran-style">آمَنَ الرَّسُولُ بِمَا أُنْزِلَ إِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِنْ رُسُلِهِ ۚ وَقَالُوا سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ ﴿٢٨٥﴾ لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ ۖ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا ۚ أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ ﴿٢٨٦﴾</span>
             <span class="zekr-text">خواتيم سورة البقرة</span>
-            <span class="hadith-ref">البقرة: 285-286 | من قرأ آيتين من آخر سورة البقرة في ليلة كفتاه</span>
+            <span class="hadith-ref">من قرأ آيتين من آخر سورة البقرة في ليلة كفتاه | البخاري ومسلم</span>
         </div>
-
-        <!-- المعوذات -->
         <div class="zekr-box">
-            <span class="zekr-text">تقرأ المعوذات الثلاث (الإخلاص والفلق والناس) وتنفث فيهما ومسح ما استطعت من جسدك</span>
-            <span class="hadith-ref">من أذكار النوم | تقرأ 3 مرات</span>
-            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
-        </div>
-    </section>
-
-    <!-- أذكار الاستيقاظ -->
-    <section id="waking" class="page">
-        <div class="page-header">
-            <button class="back-btn" onclick="closeSection()" title="العودة"><i class="fas fa-arrow-right"></i></button>
-            <div><h3>أذكار الاستيقاظ</h3></div>
-        </div>
-
-        <div class="info-badge">
-            <i class="fas fa-info-circle"></i> اقرأ هذه الأذكار عند الاستيقاظ من النوم
-        </div>
-
-        <!-- الحمد لله الذي أحيانا -->
-        <div class="zekr-box">
-            <span class="zekr-text">الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ</span>
-            <span class="hadith-ref">من أذكار الاستيقاظ | دعاء الشكر على الحياة</span>
-        </div>
-
-        <!-- الحمد لله الذي عافاني -->
-        <div class="zekr-box">
-            <span class="zekr-text">الْحَمْدُ لِلَّهِ الَّذِي عَافَانِي فِي جَسَدِي وَرَدَّ عَلَيَّ رُوحِي وَأَذِنَ لِي بِذِكْرِهِ</span>
-            <span class="hadith-ref">من أذكار الاستيقاظ | شكر على العافية</span>
-        </div>
-
-        <!-- لا إله إلا الله وحده -->
-        <div class="zekr-box">
-            <span class="zekr-text">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ الْعَلِيِّ الْعَظِيمِ، رَبِّ اغْفِرْ لِي</span>
-            <span class="hadith-ref">من أذكار الاستيقاظ | دعاء شامل</span>
-        </div>
-    </section>
-
-    <!-- أذكار بعد الصلاة -->
-    <section id="prayer" class="page">
-        <div class="page-header">
-            <button class="back-btn" onclick="closeSection()" title="العودة"><i class="fas fa-arrow-right"></i></button>
-            <div><h3>أذكار بعد الصلاة</h3></div>
-        </div>
-
-        <div class="info-badge">
-            <i class="fas fa-info-circle"></i> اقرأ هذه الأذكار مباشرة بعد انتهاء الصلاة المفروضة
-        </div>
-
-        <!-- الاستغفار -->
-        <div class="zekr-box">
-            <span class="zekr-text">أَسْتَغْفِرُ اللَّهَ (3 مرات)</span>
-            <span class="hadith-ref">من أذكار بعد الصلاة | الاستغفار الثلاث</span>
+            <span class="zekr-text">المعوذات الثلاث (الإخلاص، الفلق، الناس) يقرأهن وينفث في يديه ثم يمسح بهما ما استطاع من جسده</span>
+            <span class="hadith-ref">من أذكار النوم | يفعل ذلك ثلاث مرات | البخاري ومسلم</span>
             <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
         </div>
 
-        <!-- اللهم أنت السلام -->
         <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ</span>
-            <span class="hadith-ref">من أذكار بعد الصلاة | دعاء السلام</span>
-        </div>
-
-        <!-- لا إله إلا الله -->
-        <div class="zekr-box">
-            <span class="zekr-text">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، اللَّهُمَّ لَا مَانِعَ لِمَا أَعْطَيْتَ وَلَا مُعْطِيَ لِمَا مَنَعْتَ وَلَا يَنْفَعُ ذَا الْجَدِّ مِنْكَ الْجَدُّ</span>
-            <span class="hadith-ref">من أذكار بعد الصلاة | تعظيم الله</span>
-        </div>
-
-        <!-- التسبيح والتحميد والتكبير -->
-        <div class="zekr-box">
-            <span class="zekr-text">سُبْحَانَ اللَّهِ (33 مرة)، وَالْحَمْدُ لِلَّهِ (33 مرة)، وَاللَّهُ أَكْبَرُ (33 مرة)، وَتَمَامُ الْمِائَةِ: لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</span>
-            <span class="hadith-ref">من أذكار بعد الصلاة | التسبيح والتحميد والتكبير</span>
+            <span class="zekr-text">الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا، وَكَفَانَا، وَآوَانَا، فَكَمْ مِمَّنْ لَا كَافِيَ لَهُ وَلَا مُؤْوِيَ</span>
+            <span class="hadith-ref">من أذكار النوم | مسلم</span>
         </div>
     </section>
 
-    <!-- أذكار المنزل -->
-    <section id="home" class="page">
+    <!-- فضائل الأذكار -->
+    <section id="virtues" class="page">
         <div class="page-header">
-            <button class="back-btn" onclick="closeSection()" title="العودة"><i class="fas fa-arrow-right"></i></button>
-            <div><h3>أذكار المنزل</h3></div>
+            <button class="back-btn" onclick="closeSection()"><i class="fas fa-arrow-right"></i></button>
+            <div>
+                <h3 style="margin:0; font-size:18px;">فضائل الأذكار</h3>
+                <span style="font-size:12px; color:var(--text-secondary);">أذكار لها فضائل عظيمة</span>
+            </div>
         </div>
 
         <div class="info-badge">
-            <i class="fas fa-info-circle"></i> أذكار دخول وخروج المنزل
+            <i class="fas fa-info-circle"></i>
+            <span>أذكار وأوراد لها فضائل عظيمة من الحديث الصحيح</span>
         </div>
 
-        <!-- دخول المنزل -->
         <div class="zekr-box">
-            <span class="zekr-text">بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا</span>
-            <span class="hadith-ref">من أذكار دخول المنزل | ثم ليسلم على أهله</span>
-        </div>
-
-        <!-- خروج المنزل -->
-        <div class="zekr-box">
-            <span class="zekr-text">بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</span>
-            <span class="hadith-ref">من أذكار خروج المنزل | التوكل على الله</span>
-        </div>
-
-        <!-- اللهم إني أسألك خير المولج -->
-        <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ، بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى رَبِّنَا تَوَكَّلْنَا</span>
-            <span class="hadith-ref">من أذكار المنزل | دعاء شامل</span>
-        </div>
-    </section>
-
-    <!-- أذكار المسجد -->
-    <section id="mosque" class="page">
-        <div class="page-header">
-            <button class="back-btn" onclick="closeSection()" title="العودة"><i class="fas fa-arrow-right"></i></button>
-            <div><h3>أذكار المسجد</h3></div>
-        </div>
-
-        <div class="info-badge">
-            <i class="fas fa-info-circle"></i> أذكار دخول وخروج المسجد
-        </div>
-
-        <!-- دخول المسجد -->
-        <div class="zekr-box">
-            <span class="zekr-text">أَعُوذُ بِاللَّهِ الْعَظِيمِ، وَبِوَجْهِهِ الْكَرِيمِ، وَسُلْطَانِهِ الْقَدِيمِ، مِنَ الشَّيْطَانِ الرَّجِيمِ</span>
-            <span class="hadith-ref">من أذكار دخول المسجد | الاستعاذة من الشيطان</span>
-        </div>
-
-        <!-- بسم الله والصلاة -->
-        <div class="zekr-box">
-            <span class="zekr-text">بِسْمِ اللَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ</span>
-            <span class="hadith-ref">من أذكار دخول المسجد | دعاء الرحمة</span>
-        </div>
-
-        <!-- خروج المسجد -->
-        <div class="zekr-box">
-            <span class="zekr-text">بِسْمِ اللَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ</span>
-            <span class="hadith-ref">من أذكار خروج المسجد | سؤال الفضل</span>
-        </div>
-
-        <!-- اللهم اعصمني -->
-        <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ اعْصِمْنِي مِنَ الشَّيْطَانِ الرَّجِيمِ</span>
-            <span class="hadith-ref">من أذكار خروج المسجد | الحفظ من الشيطان</span>
-        </div>
-    </section>
-
-    <!-- أدعية نبوية -->
-    <section id="prophetic" class="page">
-        <div class="page-header">
-            <button class="back-btn" onclick="closeSection()" title="العودة"><i class="fas fa-arrow-right"></i></button>
-            <div><h3>أدعية نبوية</h3></div>
-        </div>
-
-        <div class="info-badge">
-            <i class="fas fa-info-circle"></i> أدعية ثابتة عن النبي صلى الله عليه وسلم
-        </div>
-
-        <!-- دعاء الكرب -->
-        <div class="zekr-box">
-            <span class="zekr-text">لَا إِلَهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ</span>
-            <span class="hadith-ref">دعاء الكرب والهم | من دعا بهذا في كربه فرج الله كربه</span>
-        </div>
-
-        <!-- سؤال العفو والعافية -->
-        <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي</span>
-            <span class="hadith-ref">من أدعية النبي صلى الله عليه وسلم | دعاء للحفظ والعافية</span>
-        </div>
-
-        <!-- يا حي يا قيوم -->
-        <div class="zekr-box">
-            <span class="zekr-text">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ أَصْلِحْ لِي شَأْنِي كُلَّهُ وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ</span>
-            <span class="hadith-ref">من أدعية النبي صلى الله عليه وسلم | دعاء في الكرب والشدة</span>
-        </div>
-
-        <!-- ربنا آتنا في الدنيا حسنة -->
-        <div class="zekr-box">
-            <span class="quran-style">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</span>
-            <span class="zekr-text">دعاء جامع</span>
-            <span class="hadith-ref">البقرة: 201 | من أجمع الأدعية وأشملها</span>
-        </div>
-
-        <!-- اللهم إني أعوذ بك من الهم والحزن -->
-        <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَأَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ، وَأَعُوذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ، وَأَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَقَهْرِ الرِّجَالِ</span>
-            <span class="hadith-ref">من أدعية النبي صلى الله عليه وسلم | دعاء الحفظ من الأمراض النفسية</span>
-        </div>
-
-        <!-- اللهم إني أسألك علماً نافعاً -->
-        <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلًا مُتَقَبَّلًا</span>
-            <span class="hadith-ref">من أدعية النبي صلى الله عليه وسلم | دعاء في طلب العلم والرزق</span>
-        </div>
-
-        <!-- استغفر الله العظيم -->
-        <div class="zekr-box">
-            <span class="zekr-text">أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ</span>
-            <span class="hadith-ref">من أدعية التوبة والاستغفار | دعاء الندم والتوبة</span>
-            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
-        </div>
-
-        <!-- اللهم اغفر لي خطيئتي -->
-        <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ اغْفِرْ لِي خَطِيئَتِي وَجَهْلِي وَإِسْرَافِي فِي أَمْرِي وَمَا أَنْتَ أَعْلَمُ بِهِ مِنِّي، اللَّهُمَّ اغْفِرْ لِي جِدِّي وَهَزْلِي وَخَطَئِي وَعَمْدِي وَكُلُّ ذَلِكَ عِنْدِي</span>
-            <span class="hadith-ref">من أدعية النبي صلى الله عليه وسلم | دعاء الاستغفار الشامل</span>
-        </div>
-
-        <!-- دعاء الفرج -->
-        <div class="zekr-box">
-            <span class="zekr-text">لَا إِلَهَ إِلَّا اللَّهُ الْحَلِيمُ الْكَرِيمُ، لَا إِلَهَ إِلَّا اللَّهُ الْعَلِيُّ الْعَظِيمُ، سُبْحَانَ اللَّهِ رَبِّ السَّمَاوَاتِ السَّبْعِ وَرَبِّ الْأَرْضِينَ السَّبْعِ وَمَا فِيهِنَّ وَمَا بَيْنَهُنَّ</span>
-            <span class="hadith-ref">من أدعية الفرج والتفريج | دعاء عند الشدة والكرب</span>
-        </div>
-
-        <!-- اللهم صل على محمد -->
-        <div class="zekr-box">
-            <span class="zekr-text">اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى نَبِيِّنَا مُحَمَّدٍ وَعَلَى آلِهِ وَصَحْبِهِ أَجْمَعِينَ</span>
-            <span class="hadith-ref">من الأدعية المأثورة | الصلاة على النبي صلى الله عليه وسلم</span>
+            <span class="zekr-text">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</span>
+            <span class="hadith-ref">من قالها عشر مرات كان كمن أعتق أربعة أنفس من ولد إسماعيل | البخاري ومسلم</span>
             <button class="counter" onclick="doCount(this, 10)"><span>10</span> <span>مرات</span></button>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</span>
+            <span class="hadith-ref">من قالها في يوم مائة مرة حُطت خطاياه وإن كانت مثل زبد البحر | البخاري ومسلم</span>
+            <button class="counter" onclick="doCount(this, 100)"><span>100</span> <span>مرة</span></button>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">سُبْحَانَ اللَّهِ الْعَظِيمِ وَبِحَمْدِهِ</span>
+            <span class="hadith-ref">كلمتان خفيفتان على اللسان، ثقيلتان في الميزان، حبيبتان إلى الرحمن | البخاري ومسلم</span>
+            <button class="counter" onclick="doCount(this, 100)"><span>100</span> <span>مرة</span></button>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</span>
+            <span class="hadith-ref">كنز من كنوز الجنة | البخاري ومسلم</span>
+            <button class="counter" onclick="doCount(this, 100)"><span>100</span> <span>مرة</span></button>
+        </div>
+        <div class="zekr-box">
+            <span class="zekr-text">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</span>
+            <span class="hadith-ref">من قالها في يوم مائة مرة حُطت خطاياه وإن كانت مثل زبد البحر | البخاري</span>
+            <button class="counter" onclick="doCount(this, 100)"><span>100</span> <span>مرة</span></button>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ، اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ، كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ، إِنَّكَ حَمِيدٌ مَجِيدٌ</span>
+            <span class="hadith-ref">من صلى عليَّ صلاة صلى الله عليه بها عشراً | مسلم</span>
+            <button class="counter" onclick="doCount(this, 10)"><span>10</span> <span>مرات</span></button>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">أَفْضَلُ الذِّكْرِ: لَا إِلَهَ إِلَّا اللَّهُ</span>
+            <span class="hadith-ref">أفضل الذكر لا إله إلا الله | الترمذي</span>
+            <button class="counter" onclick="doCount(this, 100)"><span>100</span> <span>مرة</span></button>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ</span>
+            <span class="hadith-ref">لأن أُقدّمهن أحب إليّ مما طلعت عليه الشمس | مسلم</span>
+            <button class="counter" onclick="doCount(this, 100)"><span>100</span> <span>مرة</span></button>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">الْكَلِمَاتُ الْأَرْبَعُ: سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ</span>
+            <span class="hadith-ref">أحب الكلام إلى الله أربع، لا يضرك بأيهن بدأت | مسلم</span>
+        </div>
+    </section>
+
+    <!-- سنن مهجورة -->
+    <section id="sunnah" class="page">
+        <div class="page-header">
+            <button class="back-btn" onclick="closeSection()"><i class="fas fa-arrow-right"></i></button>
+            <div>
+                <h3 style="margin:0; font-size:18px;">سنن مهجورة</h3>
+                <span style="font-size:12px; color:var(--text-secondary);">من هدي النبي ﷺ</span>
+            </div>
+        </div>
+
+        <div class="info-badge">
+            <i class="fas fa-info-circle"></i>
+            <span>سنن كان يعملها رسول الله ﷺ وهجرها كثير من الناس</span>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">السواك عند الوضوء والصلاة</span>
+            <span class="hadith-ref">لولا أن أشق على أمتي لأمرتهم بالسواك عند كل صلاة | البخاري ومسلم</span>
+        </div>
+        <div class="zekr-box">
+            <span class="zekr-text">الضجعة بعد الفجر (الاضطجاع على الشق الأيمن بعد صلاة الفجر)</span>
+            <span class="hadith-ref">كان النبي ﷺ إذا صلى الفجر اضطجع على شقه الأيمن | مسلم</span>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">صلاة الضحى</span>
+            <span class="hadith-ref">يوصي بها النبي ﷺ: "يصبح على كل سلامى من أحدكم صدقة، فكل تسبيحة صدقة، وكل تحميدة صدقة، وكل تهليلة صدقة، وكل تكبيرة صدقة، وأمر بالمعروف صدقة، ونهي عن المنكر صدقة، ويجزئ من ذلك ركعتان يركعهما من الضحى" | مسلم</span>
+            <button class="counter" onclick="doCount(this, 2)"><span>2</span> <span>ركعة</span></button>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">صلاة الوتر</span>
+            <span class="hadith-ref">إن الله وتر يحب الوتر | البخاري ومسلم</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>ركعة</span></button>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">صيام الاثنين والخميس</span>
+            <span class="hadith-ref">تُعرض الأعمال يوم الاثنين والخميس، فأحب أن يُعرض عملي وأنا صائم | الترمذي</span>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">صيام ثلاثة أيام من كل شهر (الأيام البيض)</span>
+            <span class="hadith-ref">صيام ثلاثة أيام من كل شهر صوم الدهر كله | البخاري ومسلم</span>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">قيام الليل</span>
+            <span class="hadith-ref">أفضل الصلاة بعد الفريضة صلاة الليل | مسلم</span>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">التهجد في آخر الليل</span>
+            <span class="hadith-ref">ينزل ربنا تبارك وتعالى كل ليلة إلى السماء الدنيا حين يبقى ثلث الليل الآخر فيقول: من يدعوني فأستجيب له، من يسألني فأعطيه، من يستغفرني فأغفر له | البخاري ومسلم</span>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">قراءة سورة الملك قبل النوم</span>
+            <span class="hadith-ref">هي المانعة، هي المنجية، تُنجيه من عذاب القبر | الترمذي</span>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">النوم على وضوء</span>
+            <span class="hadith-ref">إذا أتيت مضجعك فتوضأ وضوءك للصلاة | البخاري ومسلم</span>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">الدعاء بين الأذان والإقامة</span>            <span class="hadith-ref">لا يُرد الدعاء بين الأذان والإقامة | الترمذي وأبو داود</span>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">المشي إلى المسجد</span>
+            <span class="hadith-ref">من غدا إلى المسجد أو راح أعد الله له في الجنة نزلاً كلما غدا أو راح | البخاري ومسلم</span>
+        </div>
+
+        <div class="zekr-box">
+            <span class="zekr-text">صلاة ركعتين بعد الوضوء</span>
+            <span class="hadith-ref">ما من أحد يتوضأ فيحسن الوضوء، ثم يصلي ركعتين يقبل بقلبه ووجهه عليهما، إلا وجبت له الجنة | مسلم</span>
+        </div>
+    </section>
+
+    <!-- الكبائر -->
+    <section id="sins" class="page">
+        <div class="page-header">
+            <button class="back-btn" onclick="closeSection()"><i class="fas fa-arrow-right"></i></button>
+            <div>
+                <h3 style="margin:0; font-size:18px;">احذر الكبائر</h3>
+                <span style="font-size:12px; color:var(--text-secondary);">ذنوب الخلوات وغيرها</span>
+            </div>
+        </div>
+
+        <div class="info-badge">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>احذر هذه الكبائر فإنها مُوبِقات تُهلك صاحبها</span>
+        </div>
+
+        <!-- ذنوب الخلوات -->
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> ذنوب الخلوات (النظر الحرام)</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال الله تعالى: ﴿قُلْ لِلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ وَيَحْفَظُوا فُرُوجَهُمْ ۚ ذَٰلِكَ أَزْكَىٰ لَهُمْ ۗ إِنَّ اللَّهَ خَبِيرٌ بِمَا يَصْنَعُونَ﴾ [النور: 30]</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> يا من تخلو بمعصية الله، أتأمن مكر الله؟ أتغرك ستر الله عليك؟ تذكر أن العين زانية، وأن النظرة سهم مسموم، وأن الله يراك في خلوتك. اتقِ الله فإنك إن عصيته في الخلوة كان عقابه في العلانية.</p>
+        </div>
+
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> الخلوة بالنساء الأجنبيات</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال النبي ﷺ: "لا يخلون رجل بامرأة إلا كان ثالثهما الشيطان" | الترمذي</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> احذر الخلوة فإنها باب الزنا، والشيطان ثالثكما. كم من تائب ندم على خلوة، وكم من عفيف زلّ بها. احفظ دينك وعرضك بالبعد عن مواضع الفتنة.</p>
+        </div>
+
+        <!-- الكبائر الأخرى -->
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> الشرك بالله</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال الله تعالى: ﴿إِنَّ اللَّهَ لَا يَغْفِرُ أَنْ يُشْرَكَ بِهِ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَنْ يَشَاءُ﴾ [النساء: 48]</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> الشرك أكبر الكبائر، وهو أن تجعل لله نداً وهو خلقك. احذر الشرك الأكبر والأصغر، فالأكبر يُخرج من الملة، والأصغر يُنقص الإيمان. خالص التوحيد هو النجاة.</p>
+        </div>
+
+        <div class="zekr-box" style="border-right-color: #e74c3c;">            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> عقوق الوالدين</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال النبي ﷺ: "ألا أنبئكم بأكبر الكبائر؟ الإشراك بالله، وعقوق الوالدين" | البخاري ومسلم</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> برّ والديك وإن كانا كافرين، فلا تُخرج من الجنة بسببهما. رضا الله في رضا الوالدين، وسخط الله في سخطهما. قدّم لهما الخير، واخفض لهما جناح الذل من الرحمة.</p>
+        </div>
+
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> قتل النفس بغير حق</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال الله تعالى: ﴿وَمَنْ يَقْتُلْ مُؤْمِنًا مُتَعَمِّدًا فَجَزَاؤُهُ جَهَنَّمُ خَالِدًا فِيهَا وَغَضِبَ اللَّهُ عَلَيْهِ وَلَعَنَهُ وَأَعَدَّ لَهُ عَذَابًا عَظِيمًا﴾ [النساء: 93]</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> النفس التي حرم الله إلا بالحق، قتلها من أعظم الجرائم. اتقِ الله في دماء المسلمين، فإن دم المسلم حرام كحرمة الكعبة. لا تحمل وزر قتيل يلقاه الله يوم القيامة.</p>
+        </div>
+
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> أكل الربا</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال الله تعالى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَذَرُوا مَا بَقِيَ مِنَ الرِّبَا إِنْ كُنْتُمْ مُؤْمِنِينَ﴾ [البقرة: 278]</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> الربا حرب من الله ورسوله. آكل الربا يُبعث يوم القيامة كالذي يتخبطه الشيطان من المس. اتقِ الله وارزق نفسك من الحلال، فإن الحلال طيب والبركة فيه.</p>
+        </div>
+
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> أكل مال اليتيم</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال الله تعالى: ﴿إِنَّ الَّذِينَ يَأْكُلُونَ أَمْوَالَ الْيَتَامَىٰ ظُلْمًا إِنَّمَا يَأْكُلُونَ فِي بُطُونِهِمْ نَارًا ۖ وَسَيَصْلَوْنَ سَعِيرًا﴾ [النساء: 10]</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> اليتيم ضعيف لا ناصر له إلا الله، فمن ظلمه فقد تعرض لغضب الله. اتقِ الله في اليتيم، فإن الله تعالى توعد آكل ماله بالنار. كن له ولياً رحيماً لا ظالماً أكيلاً.</p>
+        </div>
+
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> شهادة الزور</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال النبي ﷺ: "ألا أنبئكم بأكبر الكبائر؟" قلنا: بلى يا رسول الله، قال: "الإشراك بالله، وعقوق الوالدين، وشهادة الزور" | البخاري ومسلم</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> شهادة الزور تُذهب حقوق الناس، وتُحل الحرام، وتُحرم الحلال. اتقِ الله في شهادتك، فإنك تشهد عند الله قبل أن تشهد عند القاضي. لا تُشهد لسانك على باطل.</p>
+        </div>
+
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> الزنا</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال الله تعالى: ﴿وَلَا تَقْرَبُوا الزِّنَا ۖ إِنَّهُ كَانَ فَاحِشَةً وَسَاءَ سَبِيلًا﴾ [الإسراء: 32]</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> الزنا فاحشة ومقت وساء سبيلاً. يذهب بنور الوجه، ويورث الفقر، ويُذهب الحياء. اغضض بصرك، واحفظ فرجك، فإن الزنا يُورث الندم في الدنيا والعذاب في الآخرة.</p>
+        </div>
+
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> الغيبة والنميمة</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال النبي ﷺ: "أتدرون ما الغيبة؟" قالوا: الله ورسوله أعلم، قال: "ذكرك أخاك بما يكره" | مسلم</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> الغيبة أكلة لحوم الموتى، والنميمة تُفسد بين الناس. احفظ لسانك من الغيبة، فإنك إن اغتبت اليوم أُخذ من حسناتك غداً. تذكر أن من غاب عنك أخوك المسلم فادفع عنه ولا تغتابه.</p>
+        </div>
+
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> ترك الصلاة</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال النبي ﷺ: "بين الرجل وبين الشرك والكفر ترك الصلاة" | مسلم</span>
+            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> الصلاة عماد الدين، من أقامها أقام الدين، ومن هدمها هدم الدين. لا تُضيع صلاتك فإنها أول ما يُحاسب عليه العبد. حافظ على صلواتك في أوقاتها مع الجماعة، فإنها نور لك في الدنيا والآخرة.</p>
+        </div>
+
+        <div class="zekr-box" style="border-right-color: #e74c3c;">
+            <span class="zekr-text" style="color: #e74c3c; font-size: 18px;"><i class="fas fa-exclamation-circle"></i> السحر</span>
+            <span class="hadith-ref" style="color: #e74c3c; font-weight: 700;">قال الله تعالى: ﴿وَلَقَدْ عَلِمُوا لَمَنِ اشْتَرَاهُ مَا لَهُ فِي الْآخِرَةِ مِنْ خَلَاقٍ ۚ وَلَبِئْسَ مَا شَرَوْا بِهِ أَنْفُسَهُمْ ۚ لَوْ كَانُوا يَعْلَمُونَ﴾ [البقرة: 102]</span>            <p style="margin-top: 10px; font-size: 14px; line-height: 1.8;"><b>موعظة:</b> السحر من الكبائر المُوبِقات، وهو كفر صريح. من تعلم السحر أو تعلمه فقد كفر بالله. احذر السحر والسحرة، واعتصم بالله والأذكار الشرعية، فإنها حصنك من كل شر.</p>
         </div>
     </section>
 
 </div>
 
 <script>
-    // وظيفة فتح الأقسام
     function openSection(id) {
         document.getElementById('main-content').classList.add('hidden');
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -796,41 +845,26 @@
         window.scrollTo(0,0);
     }
 
-    // وظيفة العودة للرئيسية
     function closeSection() {
         document.getElementById('main-content').classList.remove('hidden');
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         window.scrollTo(0,0);
     }
 
-    // العداد
     function doCount(btn, max) {
         let span = btn.querySelector('span:first-child');
         let val = parseInt(span.innerText);
         if (val > 1) {
             span.innerText = val - 1;
+            btn.style.transform = 'scale(0.95)';
+            setTimeout(() => btn.style.transform = '', 100);
         } else {
             span.innerHTML = '<i class="fas fa-check"></i>';
             btn.parentElement.classList.add('completed');
+            btn.style.background = 'rgba(46, 204, 113, 0.3)';
         }
         if(navigator.vibrate) navigator.vibrate(30);
     }
-
-    // تبديل الوضع الليلي
-    function toggleTheme() {
-        const b = document.body;
-        const isDark = b.getAttribute('data-theme') === 'dark';
-        b.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        document.querySelector('.theme-btn i').className = isDark ? 'fas fa-moon' : 'fas fa-sun';
-        localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    }
-
-    // تحميل الوضع المحفوظ
-    window.addEventListener('load', function() {
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.body.setAttribute('data-theme', savedTheme);
-        document.querySelector('.theme-btn i').className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    });
 </script>
 
 </body>
