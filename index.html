@@ -11,183 +11,169 @@
     <style>
         :root{--green:#1b4332;--dark:#081c15;--gold:#d4af37;--bg:#f8f9fa;--text:#2d3436;--card:#fff;--shadow:0 4px 12px rgba(0,0,0,.08);--r:16px}
         [data-theme="dark"]{--bg:#0a0f0d;--text:#f0f0f0;--card:#152a22;--shadow:0 4px 12px rgba(0,0,0,.3)}
-        *{box-sizing:border-box;transition:all .25s;-webkit-tap-highlight-color:transparent;margin:0;padding:0;text-align:center}
-        body{font-family:'Almarai',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;font-size:14px}
+        *{box-sizing:border-box;transition:all .2s;-webkit-tap-highlight-color:transparent;margin:0;padding:0;text-align:center}
+        body{font-family:'Almarai',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:50px}
         
-        .theme-toggle{position:fixed;top:12px;right:12px;width:40px;height:40px;background:var(--gold);border:none;border-radius:12px;z-index:1000;color:var(--dark);box-shadow:var(--shadow)}
-        
-        .header{width:100%;min-height:160px;background:linear-gradient(160deg,var(--green),var(--dark));border-radius:0 0 40px 40px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:25px;box-shadow:0 8px 25px rgba(0,0,0,.15);padding-top:20px}
-        .header h1{color:var(--gold);font-size:24px;font-weight:800;margin-bottom:5px}
-        .logo-container{width:75px;height:75px;border-radius:50%;border:3px solid var(--gold);background:#fff;margin:-35px auto 15px;overflow:hidden;z-index:10;position:relative}
-        .logo-container img{width:100%;height:100%;object-fit:cover}
+        .header{width:100%;min-height:140px;background:linear-gradient(160deg,var(--green),var(--dark));border-radius:0 0 35px 35px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 8px 25px rgba(0,0,0,.15)}
+        .header h1{color:var(--gold);font-size:22px;font-weight:800}
+        .logo-box{width:70px;height:70px;border-radius:50%;border:3px solid var(--gold);background:#fff;margin:-35px auto 10px;overflow:hidden;position:relative;z-index:5}
+        .logo-box img{width:100%;height:100%;object-fit:cover}
 
-        .search{width:90%;margin:-10px auto 20px;position:relative}
-        .search input{width:100%;padding:12px 45px 12px 15px;border-radius:25px;border:2px solid var(--gold);background:var(--card);color:var(--text);font-family:inherit}
-        .search i{position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--green)}
-
-        .grid{width:92%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:15px;padding-bottom:30px}
-        .card{background:var(--card);border-radius:var(--r);padding:20px;box-shadow:var(--shadow);border-bottom:4px solid var(--gold);cursor:pointer}
-        .card-icon{font-size:28px;color:var(--gold);margin-bottom:10px}
-        .card-title{font-size:15px;font-weight:700;color:var(--green)}
+        .grid{width:92%;margin:20px auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .card{background:var(--card);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);border-bottom:3px solid var(--gold);cursor:pointer}
+        .card-icon{font-size:26px;color:var(--gold);margin-bottom:8px}
+        .card-title{font-size:14px;font-weight:700;color:var(--green)}
         [data-theme="dark"] .card-title{color:var(--gold)}
 
-        .page{display:none;width:92%;margin:0 auto;padding-bottom:80px;animation:fadeIn 0.3s ease-out}
+        /* إخفاء الصفحة الرئيسية عند فتح قسم */
+        #main-content.hidden{display:none}
+
+        .page{display:none;width:94%;margin:0 auto;animation:fadeIn 0.3s ease}
         .page.active{display:block}
-        @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-        .page-header{background:linear-gradient(135deg,var(--green),var(--dark));padding:15px;border-radius:18px;color:#fff;margin-bottom:20px;display:flex;align-items:center;gap:15px;text-align:right}
-        .back-btn{background:rgba(255,255,255,0.15);border:1px solid var(--gold);color:var(--gold);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+        .page-header{background:linear-gradient(135deg,var(--green),var(--dark));padding:12px 18px;border-radius:15px;color:#fff;margin-bottom:20px;display:flex;align-items:center;gap:15px;text-align:right}
+        .back-btn{background:rgba(255,255,255,0.1);border:1px solid var(--gold);color:var(--gold);width:35px;height:35px;border-radius:8px;display:flex;align-items:center;justify-content:center}
 
-        .zekr{background:var(--card);border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:var(--shadow);border-right:6px solid var(--gold);text-align:right;position:relative}
-        .zekr-c{font-size:16px;line-height:2;color:var(--text);font-weight:600}
-        .quran-font{font-family:'Amiri',serif;font-size:19px;color:var(--green);text-align:center;background:rgba(27,67,50,0.04);padding:15px;border-radius:12px;display:block;margin-bottom:10px}
-        [data-theme="dark"] .quran-font{color:var(--gold);background:rgba(212,175,55,0.08)}
+        .zekr-box{background:var(--card);border-radius:15px;padding:20px;margin-bottom:15px;box-shadow:var(--shadow);border-right:5px solid var(--gold);text-align:right}
+        .zekr-text{font-size:15px;line-height:1.9;color:var(--text);font-weight:600;display:block}
+        .quran-style{font-family:'Amiri',serif;font-size:18px;color:var(--green);text-align:center;background:rgba(27,67,50,0.04);padding:12px;border-radius:10px;display:block;margin-bottom:10px}
+        [data-theme="dark"] .quran-style{color:var(--gold)}
         
-        .counter-btn{background:var(--green);color:#fff;padding:14px;border-radius:14px;margin-top:15px;display:flex;justify-content:center;gap:12px;font-weight:bold;cursor:pointer;border:none;width:100%}
-        .counter-btn:active{transform:scale(0.97)}
-        .done{opacity:0.4;filter:grayscale(1)}
-        .done .zekr-c{text-decoration:line-through}
+        .counter{background:var(--green);color:#fff;padding:12px;border-radius:12px;margin-top:12px;display:flex;justify-content:center;gap:10px;font-weight:bold;cursor:pointer;border:none;width:100%}
+        .completed{opacity:0.4;filter:grayscale(1)}
 
-        .footer{padding:30px;font-size:12px;color:#888;line-height:1.8}
-        .footer b{color:var(--green)}
+        .footer{padding:20px;font-size:11px;color:#888}
+        .theme-btn{position:fixed;bottom:20px;left:20px;width:45px;height:45px;background:var(--gold);border-radius:50%;border:none;box-shadow:var(--shadow);z-index:100}
     </style>
 </head>
 <body data-theme="light">
 
-<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn"><i class="fas fa-moon"></i></button>
+<button class="theme-btn" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
 
-<header class="header">
-    <h1>صفاء الروح</h1>
-    <p style="color:#bcc; font-size:13px">أذكار المسلم اليومية والموثقة</p>
-</header>
-
-<div class="logo-container">
-    <img src="https://i.postimg.cc/zGSvxgCn/1775323811617.png" alt="Safa Logo">
-</div>
-
-<div id="home-screen">
-    <div class="search">
-        <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" placeholder="ابحث عن ذكر أو دعاء..." onkeyup="searchZekr()">
-    </div>
+<div id="main-content">
+    <header class="header">
+        <h1>صفاء الروح</h1>
+        <p style="color:#ddd; font-size:12px">تطبيق الأذكار الموثقة</p>
+    </header>
+    <div class="logo-box"><img src="https://i.postimg.cc/zGSvxgCn/1775323811617.png" alt="Safa"></div>
 
     <main class="grid">
-        <div class="card" onclick="showPage('morning')"><i class="fas fa-sun card-icon"></i><div class="card-title">أذكار الصباح</div></div>
-        <div class="card" onclick="showPage('evening')"><i class="fas fa-moon card-icon"></i><div class="card-title">أذكار المساء</div></div>
-        <div class="card" onclick="showPage('sleep')"><i class="fas fa-bed card-icon"></i><div class="card-title">أذكار النوم</div></div>
-        <div class="card" onclick="showPage('prayers')"><i class="fas fa-hand-holding-heart card-icon"></i><div class="card-title">جوامع الدعاء</div></div>
+        <div class="card" onclick="openSection('morning')"><i class="fas fa-sun card-icon"></i><div class="card-title">أذكار الصباح</div></div>
+        <div class="card" onclick="openSection('evening')"><i class="fas fa-moon card-icon"></i><div class="card-title">أذكار المساء</div></div>
+        <div class="card" onclick="openSection('sleep')"><i class="fas fa-bed card-icon"></i><div class="card-title">أذكار النوم</div></div>
+        <div class="card" onclick="openSection('prophetic')"><i class="fas fa-heart card-icon"></i><div class="card-title">أدعية نبوية</div></div>
     </main>
+    
+    <footer class="footer">برمجة وتطوير <b>sabriFX</b> &copy; 2026</footer>
 </div>
 
-<div id="pages-container">
-    <section class="page" id="morning">
+<div id="pages-layer">
+    
+    <section id="morning" class="page">
         <div class="page-header">
-            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-right"></i></button>
-            <div style="text-align:right"><h3>أذكار الصباح</h3><small>تحصين المسلم في يومه</small></div>
+            <button class="back-btn" onclick="closeSection()"><i class="fas fa-arrow-right"></i></button>
+            <div><h3>أذكار الصباح</h3></div>
         </div>
-        <div class="zekr">
-            <span class="zekr-c quran-font">اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ...</span>
-            <button class="counter-btn" onclick="count(this, 1)"><span>1</span> <span>آية الكرسي</span></button>
+        <div class="zekr-box">
+            <span class="quran-style">آية الكرسي: اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>مرة واحدة</span></button>
         </div>
-        <div class="zekr">
-            <span class="zekr-c">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لا إِلَهَ إِلا اللَّهُ وَحْدَهُ لا شَرِيكَ لَهُ...</span>
-            <button class="counter-btn" onclick="count(this, 1)"><span>1</span> <span>مرة واحدة</span></button>
-        </div>
-        <div class="zekr">
-            <span class="zekr-c">اللَّهُمَّ أَنْتَ رَبِّي لا إِلَهَ إِلا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ...</span>
-            <button class="counter-btn" onclick="count(this, 1)"><span>1</span> <span>سيد الاستغفار</span></button>
+        <div class="zekr-box">
+            <span class="zekr-text">أصبحنا وأصبح الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له...</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>مرة واحدة</span></button>
         </div>
     </section>
 
-    <section class="page" id="evening">
+    <section id="evening" class="page">
         <div class="page-header">
-            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-right"></i></button>
-            <div style="text-align:right"><h3>أذكار المساء</h3><small>حفظ الله في ليلك</small></div>
+            <button class="back-btn" onclick="closeSection()"><i class="fas fa-arrow-right"></i></button>
+            <div><h3>أذكار المساء</h3></div>
         </div>
-        <div class="zekr">
-            <span class="zekr-c quran-font">آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ...</span>
-            <button class="counter-btn" onclick="count(this, 1)"><span>1</span> <span>خواتيم سورة البقرة</span></button>
+        <div class="zekr-box">
+            <span class="zekr-text">أمسينا وأمسى الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له...</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>مرة واحدة</span></button>
         </div>
-        <div class="zekr">
-            <span class="zekr-c">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ...</span>
-            <button class="counter-btn" onclick="count(this, 1)"><span>1</span> <span>مرة واحدة</span></button>
+        <div class="zekr-box">
+            <span class="zekr-text">اللهم بك أمسينا، وبك أصبحنا، وبك نحيا، وبك نموت، وإليك المصير.</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>مرة واحدة</span></button>
         </div>
     </section>
 
-    <section class="page" id="sleep">
+    <section id="sleep" class="page">
         <div class="page-header">
-            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-right"></i></button>
-            <div style="text-align:right"><h3>أذكار النوم</h3><small>قبل راحة الجسد</small></div>
+            <button class="back-btn" onclick="closeSection()"><i class="fas fa-arrow-right"></i></button>
+            <div><h3>أذكار النوم</h3></div>
         </div>
-        <div class="zekr">
-            <span class="zekr-c">بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ...</span>
-            <button class="counter-btn" onclick="count(this, 1)"><span>1</span> <span>مرة واحدة</span></button>
+        <div class="zekr-box">
+            <span class="zekr-text">باسمك ربي وضعت جنبي، وبك أرفعه، فإن أمسكت نفسي فارحمها، وإن أرسلتها فاحفظها بما تحفظ به عبادك الصالحين.</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>مرة واحدة</span></button>
         </div>
-        <div class="zekr">
-            <span class="zekr-c">اللَّهُمَّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ عِبَادَكَ.</span>
-            <button class="counter-btn" onclick="count(this, 3)"><span>3</span> <span>مرات</span></button>
+        <div class="zekr-box">
+            <span class="zekr-text">اللهم قني عذابك يوم تبعث عبادك.</span>
+            <button class="counter" onclick="doCount(this, 3)"><span>3</span> <span>مرات</span></button>
+        </div>
+        <div class="zekr-box">
+            <span class="zekr-text">باسمك اللهم أموت وأحيا.</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>مرة واحدة</span></button>
         </div>
     </section>
 
-    <section class="page" id="prayers">
+    <section id="prophetic" class="page">
         <div class="page-header">
-            <button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-right"></i></button>
-            <div style="text-align:right"><h3>أدعية نبوية</h3><small>من صحيح السنة</small></div>
+            <button class="back-btn" onclick="closeSection()"><i class="fas fa-arrow-right"></i></button>
+            <div><h3>أدعية نبوية</h3></div>
         </div>
-        <div class="zekr">
-            <span class="zekr-c">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ.</span>
-            <button class="counter-btn" onclick="count(this, 1)"><span>1</span> <span>دعاء العافية</span></button>
+        <div class="zekr-box">
+            <span class="zekr-text">اللهم إنك عفو تحب العفو فاعف عني.</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>دعاء</span></button>
         </div>
-        <div class="zekr">
-            <span class="zekr-c">يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ.</span>
-            <button class="counter-btn" onclick="count(this, 1)"><span>1</span> <span>الثبات</span></button>
+        <div class="zekr-box">
+            <span class="zekr-text">ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار.</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>دعاء</span></button>
+        </div>
+        <div class="zekr-box">
+            <span class="zekr-text">يا حي يا قيوم برحمتك أستغيث أصلح لي شأني كله ولا تكلني إلى نفسي طرفة عين.</span>
+            <button class="counter" onclick="doCount(this, 1)"><span>1</span> <span>دعاء</span></button>
         </div>
     </section>
+
 </div>
-
-<footer class="footer">
-    هوية بصرية وبرمجة <b>sabriFX</b> &copy; 2026<br>
-    جميع المحتويات موثقة من الكتاب والسنة
-</footer>
 
 <script>
-    function showPage(id) {
-        document.getElementById('home-screen').style.display = 'none';
+    // وظيفة فتح الأقسام
+    function openSection(id) {
+        document.getElementById('main-content').classList.add('hidden');
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         window.scrollTo(0,0);
     }
 
-    function showHome() {
-        document.getElementById('home-screen').style.display = 'block';
+    // وظيفة العودة للرئيسية
+    function closeSection() {
+        document.getElementById('main-content').classList.remove('hidden');
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     }
 
-    function count(btn, max) {
+    // العداد
+    function doCount(btn, max) {
         let span = btn.querySelector('span:first-child');
-        let current = parseInt(span.innerText);
-        if (current > 1) {
-            span.innerText = current - 1;
+        let val = parseInt(span.innerText);
+        if (val > 1) {
+            span.innerText = val - 1;
         } else {
             span.innerHTML = '<i class="fas fa-check"></i>';
-            btn.parentElement.classList.add('done');
+            btn.parentElement.classList.add('completed');
         }
-        if(navigator.vibrate) navigator.vibrate(40);
+        if(navigator.vibrate) navigator.vibrate(30);
     }
 
+    // تبديل الوضع الليلي
     function toggleTheme() {
-        const body = document.body;
-        const isDark = body.getAttribute('data-theme') === 'dark';
-        body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-        document.querySelector('#themeBtn i').className = isDark ? 'fas fa-moon' : 'fas fa-sun';
-    }
-
-    function searchZekr() {
-        let input = document.getElementById('searchInput').value.toLowerCase();
-        let cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.style.display = card.innerText.toLowerCase().includes(input) ? "block" : "none";
-        });
+        const b = document.body;
+        const isDark = b.getAttribute('data-theme') === 'dark';
+        b.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        document.querySelector('.theme-btn i').className = isDark ? 'fas fa-moon' : 'fas fa-sun';
     }
 </script>
 
