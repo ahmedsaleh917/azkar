@@ -1,0 +1,208 @@
+{
+  "name": "صفاء الروح - الأذكار والعبادات المتكاملة",
+  "short_name": "صفاء الروح",
+  "description": "تطبيق إسلامي شامل للأذكار والأدعية والسنن النبوية من حصن المسلم، مع عدادات تفاعلية وفوائد وثواب كل ذكر",
+  
+  "start_url": "/index.html",
+  "scope": "/",
+  
+  "display": "standalone",
+  "orientation": "portrait",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  
+  "background_color": "#f8f9fa",
+  "theme_color": "#1b4332",
+  
+  "lang": "ar",
+  "dir": "rtl",
+  "locale": "ar-SA",
+  
+  "categories": [
+    "education",
+    "lifestyle",
+    "reference",
+    "health",
+    "religion",
+    "productivity"
+  ],
+  
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+      "sizes": "144x144",      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  
+  "screenshots": [
+    {
+      "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "الصفحة الرئيسية - أذكار الصباح والمساء"
+    },
+    {
+      "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "عرض الأذكار مع العدادات التفاعلية"
+    }
+  ],
+  
+  "shortcuts": [
+    {
+      "name": "أذكار الصباح",
+      "short_name": "الصباح",      "description": "افتح أذكار الصباح المحصّنة",
+      "url": "/index.html#morning",
+      "icons": [
+        {
+          "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "أذكار المساء",
+      "short_name": "المساء",
+      "description": "افتح أذكار المساء المحصّنة",
+      "url": "/index.html#evening",
+      "icons": [
+        {
+          "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "أذكار النوم",
+      "short_name": "النوم",
+      "description": "افتح أذكار النوم من حصن المسلم",
+      "url": "/index.html#sleep",
+      "icons": [
+        {
+          "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "أدعية مأثورة",
+      "short_name": "أدعية",
+      "description": "افتح أدعية النبي ﷺ الجامعة",
+      "url": "/index.html#duas",
+      "icons": [
+        {
+          "src": "https://i.postimg.cc/zGSvxgCn/1775323811617.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],  
+  "prefer_related_applications": false,
+  
+  "related_applications": [],
+  
+  "iarc_rating_id": "",
+  
+  "handle_links": "preferred",
+  
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+  },
+  
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  
+  "protocol_handlers": [
+    {
+      "protocol": "web+safaa",
+      "url": "/index.html?dhikr=%s"
+    }
+  ],
+  
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  
+  "file_handlers": [
+    {
+      "action": "/open-file",
+      "accept": {
+        "text/plain": [".txt"],
+        "application/json": [".json"]
+      },
+      "launch_type": "single-client"
+    }
+  ],
+  
+  "id": "com.sabrifx.safaa-athkar",
+  
+  "version": "3.0.0",
+    "developer": {
+    "name": "sabriFX",
+    "url": "https://github.com/sabrifx"
+  },
+  
+  "privacy_policy": "https://example.com/privacy",
+  
+  "feedback": {
+    "email": "support@sabrifx.com",
+    "url": "https://example.com/feedback"
+  }
+}
